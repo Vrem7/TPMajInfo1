@@ -22,3 +22,12 @@ Create a micro shell, which you will call enseash, to be used for launching comm
 displaying information about their execution.  
 
 ![](Q1.png)
+
+## Q.2
+2. Execution of the entered command and return to the prompt (REPL : read–eval–print
+loop) :
+- a) read the command entered by user,
+- b) execute this command (simple command for the moment, without argument)),
+- c) print the prompt enseash % and waits for a new command
+
+![](Q2.png)
