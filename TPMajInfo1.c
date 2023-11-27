@@ -8,6 +8,7 @@
 #define WELCOME_MESSAGE "Welcome to ENSEA Tiny Shell.\nType 'exit' to quit.\n"
 #define PROMPT "enseash % "
 #define BUFFERSIZE 1024
+#define EXIT_MESSAGE "Bye bye...\n"
 
 // Function to display a message
 void display(char * message){
@@ -51,7 +52,7 @@ int main() {
         
         // Waiting for exit
         if (strcmp(input, "exit") == 0) {
-            display("Bye bye...\n");
+            display(EXIT_MESSAGE);
             break;
         }
 
