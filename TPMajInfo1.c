@@ -48,6 +48,12 @@ int main() {
 
         // Remove newline character from input
         input[strcspn(input, "\n")] = '\0';
+        
+        // Waiting for exit
+        if (strcmp(input, "exit") == 0) {
+            display("Bye bye...\n");
+            break;
+        }
 
         // Execute the entered command
         executeCommand(input);
