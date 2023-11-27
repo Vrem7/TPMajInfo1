@@ -1,4 +1,4 @@
-# TPMajInfo1# TPMajInfo1
+# TPMajInfo1#
 
 MAYIMONA ZANDU Merveille  
 KARDELLAS Amin
