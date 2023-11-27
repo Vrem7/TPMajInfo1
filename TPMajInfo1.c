@@ -15,6 +15,5 @@ int main() {
         display(PROMPT);
         break;
     }
-
     return 0;
 }
