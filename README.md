@@ -62,6 +62,7 @@ I did question 6, 7 and 8 with the bin/sh file it works but we need a version wi
 ## Q.7
 
 Management of redirections to stdin and stdout with ’<’ and ’>’
+
 We have now a version with strtok
 
 ![](Q7.png)
