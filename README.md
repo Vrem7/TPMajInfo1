@@ -1,68 +1,59 @@
-# TPMajInfo1#
+# TPMajInfo1 - Micro Shell Implementation
 
-MAYIMONA ZANDU Merveille  
-KARDELLAS Amin
+## Welcome to ENSEA Tiny Shell
 
-![](Image/header.jpg)
+### Table of Contents
+- [Q.1: Micro Shell Implementation (enseash)](#q1)
+- [Q.2: Execution and REPL Loop](#q2)
+- [Q.3: Exit Command and CTRL+D](#q3)
+- [Q.4: Display Return Code/Signal](#q4)
+- [Q.5: Measurement of Execution Time](#q5)
+- [Q.6: Execution of Complex Commands](#q6)
+- [Q.7: Redirections with `<` and `>`](#q7)
 
-## Sommaire
-- [Q.1](#q1)
-- [Q.2](#q2)
-- [Q.3](#q3)
-- [Q.4](#q4)
-- [Q.5](#q5)
-- [Q.6](#q6)
-- [Q.7](#q7)
-- [Q.8](#q8)
-- [Q.9](#q9)
+## Q.1: Micro Shell Implementation (enseash) <a name="q1"></a>
 
-## Q.1
+Create a micro shell, named `enseash`, for launching commands and displaying information about their execution.
 
-Create a micro shell, which you will call enseash, to be used for launching commands and
-displaying information about their execution.  
+![Q1](Q1.png)
 
-![](Q1.png)
+## Q.2: Execution and REPL Loop <a name="q2"></a>
 
-## Q.2
-Execution of the entered command and return to the prompt (REPL : read–eval–print
-loop) :
-- a) read the command entered by user,
-- b) execute this command (simple command for the moment, without argument)),
-- c) print the prompt enseash % and waits for a new command
+Implement a Read-Eval-Print Loop (REPL) for the micro shell:
+- a) Read the command entered by the user.
+- b) Execute the command (simple command without arguments).
+- c) Print the prompt `enseash %` and wait for a new command.
 
-![](Q2.png)
+![Q2](Q2.png)
 
-## Q.3
+## Q.3: Exit Command and CTRL+D <a name="q3"></a>
 
-Management of the shell output with the command ”exit” or with <ctrl>+d
+Manage the shell output with the command `exit` or with `<ctrl>+d`.
 
-![](Q3.png)
+![Q3](Q3.png)
 
-## Q.4
+## Q.4: Display Return Code/Signal <a name="q4"></a>
 
-Display the return code (or signal) of the previous command in the prompt :
+Display the return code or signal of the previous command in the prompt.
 
-![](Q4.png)
+![Q4](Q4.png)
 
-## Q.5
+## Q.5: Measurement of Execution Time <a name="q5"></a>
 
-Measurement of the command execution time using the call clock_gettime :
+Measure the command execution time using `clock_gettime`.
 
-![](Q5_1.png)
-![](Q5_2.png)
+![Q5_1](Q5_1.png)
+![Q5_2](Q5_2.png)
 
-## Q.6
+## Q.6: Execution of Complex Commands <a name="q6"></a>
 
-Execution of a complex command (with arguments)
+Implement the execution of complex commands with arguments. But I did question 6, 7 and 8 with the bin/sh file it works but we need a version with strtok.
 
-I did question 6, 7 and 8 with the bin/sh file it works but we need a version with strtok
-![](Q6v1.png)
-![](Q6.png)
+![Q6v1](Q6v1.png)
+![Q6](Q6.png)
 
-## Q.7
+## Q.7: Redirections with `<` and `>` <a name="q7"></a>
 
-Management of redirections to stdin and stdout with ’<’ and ’>’
+We have now a version with strtok. Manage redirections to stdin and stdout with `<` and `>`.
 
-We have now a version with strtok
-
-![](Q7.png)
+![Q7](Q7.png)
