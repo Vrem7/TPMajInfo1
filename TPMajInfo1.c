@@ -5,6 +5,7 @@
 #include <sys/wait.h>
 #include <stdio.h>
 #include <time.h>
+#include <fcntl.h> // for open and close
 
 #define WELCOME_MESSAGE "Welcome to ENSEA Tiny Shell.\nType 'exit' to quit.\n"
 #define PROMPT_FORMAT "enseash [%s:%d|%ldms] %% "
@@ -29,9 +30,48 @@ void executeCommand(char *command) {
         exit(EXIT_FAILURE);
     } else if (pid == 0) {
         // Child process
-        char *args[] = {"/bin/sh","-c",command,NULL};
-        execvp(args[0], args);
-        perror("execvp");
+
+        // Parse the command to check for redirections
+        char *token;
+        char *inputFile = NULL;
+        char *outputFile = NULL;
+
+        token = strtok(command, " ");
+        while (token != NULL) {
+            if (strcmp(token, "<") == 0) {
+                token = strtok(NULL, " ");
+                inputFile = token;
+            } else if (strcmp(token, ">") == 0) {
+                token = strtok(NULL, " ");
+                outputFile = token;
+            } else {
+                token = strtok(NULL, " ");
+            }
+        }
+
+        // Set up redirections if needed
+        if (inputFile != NULL) {
+            int fd = open(inputFile, O_RDONLY);
+            if (fd == -1) {
+                perror("open");
+                exit(EXIT_FAILURE);
+            }
+            dup2(fd, STDIN_FILENO);
+            close(fd);
+        }
+
+        if (outputFile != NULL) {
+            int fd = open(outputFile, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+            if (fd == -1) {
+                perror("open");
+                exit(EXIT_FAILURE);
+            }
+            dup2(fd, STDOUT_FILENO);
+            close(fd);
+        }
+
+        execlp(command, command, NULL);
+        perror("execlp");
         exit(EXIT_FAILURE);
     } else {
         // Parent process

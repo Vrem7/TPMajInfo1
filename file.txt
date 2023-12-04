@@ -1,0 +1,13 @@
+enseash
+file.txt
+Q1.png
+Q2.png
+Q3.png
+Q4.png
+Q5_1.png
+Q5_2.png
+Q6.png
+README.md
+test
+test.c
+TPMajInfo1.c
