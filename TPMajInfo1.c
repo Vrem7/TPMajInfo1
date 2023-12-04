@@ -4,9 +4,10 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdio.h>
+#include <time.h>
 
 #define WELCOME_MESSAGE "Welcome to ENSEA Tiny Shell.\nType 'exit' to quit.\n"
-#define PROMPT_FORMAT "enseash [%s:%d] %% "
+#define PROMPT_FORMAT "enseash [%s:%d|%ldms] %% "
 #define PROMPT "enseash % "
 #define BUFFERSIZE 1024
 #define EXIT_MESSAGE "Bye bye...\n"
@@ -18,6 +19,9 @@ void display(char *message) {
 
 // Function to execute the entered command using fork and execlp
 void executeCommand(char *command) {
+    struct timespec start, end;
+    clock_gettime(CLOCK_MONOTONIC, &start);
+
     pid_t pid = fork();
 
     if (pid == -1) {
@@ -33,7 +37,10 @@ void executeCommand(char *command) {
         int status;
         waitpid(pid, &status, 0);
 
-        // Display the return code or signal in the prompt
+        clock_gettime(CLOCK_MONOTONIC, &end);
+        long duration = (end.tv_sec - start.tv_sec) * 1000 + (end.tv_nsec - start.tv_nsec) / 1000000;
+
+        // Display the return code or signal and execution time in the prompt
         char statusType[8];
         int statusCode;
 
@@ -48,7 +55,7 @@ void executeCommand(char *command) {
         }
 
         char prompt[BUFFERSIZE];
-        snprintf(prompt, sizeof(prompt), PROMPT_FORMAT, statusType, statusCode);
+        snprintf(prompt, sizeof(prompt), PROMPT_FORMAT, statusType, statusCode, duration);
         display(prompt);
     }
 }

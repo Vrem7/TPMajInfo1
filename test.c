@@ -1,5 +1,7 @@
-int main(int argc, char *argv[])
+#include <unistd.h>
+
+int main()
 {
-    int tableau[4];
-    return tableau[177658767];
+    sleep(10);
+    return 0;
 }
