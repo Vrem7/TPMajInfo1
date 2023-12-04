@@ -55,4 +55,6 @@ Measurement of the command execution time using the call clock_gettime :
 
 Execution of a complex command (with arguments)
 
+I did question 6, 7 and 8 with the bin/sh file it works but you need a version with strtok
+![](Q6v1.png)
 ![](Q6.png)
