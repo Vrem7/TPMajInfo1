@@ -43,3 +43,10 @@ Management of the shell output with the command ”exit” or with <ctrl>+d
 Display the return code (or signal) of the previous command in the prompt :
 
 ![](Q4.png)
+
+## Q.5
+
+Measurement of the command execution time using the call clock_gettime :
+
+![](Q5_1.png)
+![](Q5_2.png)
