@@ -38,7 +38,7 @@ Management of the shell output with the command ”exit” or with <ctrl>+d
 
 ![](Q3.png)
 
-## Q.3
+## Q.4
 
 Display the return code (or signal) of the previous command in the prompt :
 
