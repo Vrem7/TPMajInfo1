@@ -29,8 +29,9 @@ void executeCommand(char *command) {
         exit(EXIT_FAILURE);
     } else if (pid == 0) {
         // Child process
-        execlp(command, command, NULL);
-        perror("execlp");
+        char *args[] = {"/bin/sh","-c",command,NULL};
+        execvp(args[0], args);
+        perror("execvp");
         exit(EXIT_FAILURE);
     } else {
         // Parent process
