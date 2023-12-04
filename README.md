@@ -50,3 +50,9 @@ Measurement of the command execution time using the call clock_gettime :
 
 ![](Q5_1.png)
 ![](Q5_2.png)
+
+## Q.6
+
+Execution of a complex command (with arguments)
+
+![](Q6.png)
